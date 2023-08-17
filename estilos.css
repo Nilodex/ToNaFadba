@@ -1,0 +1,51 @@
+.test {
+  border: 1px solid red;
+}
+
+body{
+  font-family: roboto, sans-serif;
+}
+
+.cor-navbar {
+  background-color:#496CBA;
+}
+
+.borda-recentes {
+  border: 2px solid;
+  border-color: #496CBACC;
+}
+
+.anuncio-titulo {
+  font-size: 20px;
+  text-align: start;
+}
+
+.card-preco {
+  font-size:23px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.badge-anuncio {
+  font-size: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.bg-laranja{
+  background-color:rgb(194, 133, 19);
+}
+
+.texto-por-mes{
+  font-size:10px;
+}
+
+.card-descricao{
+  font-size:15px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
