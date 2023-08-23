@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minha Conta</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/770fa30c75.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="bg-light">
+    <header class="nav-header">
+        <nav class="navbar navbar-expand-md navbar-light cor-navbar">
+          <a class="navbar-brand col-auto" href="/">
+            <img src="/imagens/logoNEW.png" width="150" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse col my-md-0 my-2" id="navbarSupportedContent">
+            <div class="col-10 col-md-7 col-xl-5 mx-auto">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Pesquise por imóveis" aria-label="Pesquisar imóveis" aria-describedby="botao-pesquisar">
+                <button class="btn btn-outline-light" type="button" id="botao-pesquisar">Pesquisar</button>
+              </div>
+            </div>
+            <div class="nav-item col-auto my-md-0 my-2">
+              <a href="/criarAnuncio.html" class="nav-link link-light text-end me-3 fs-6 link-opacity-50-hover">Criar Anúncio</a>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main class="container-xl mt-2 d-flex flex-column align-items-center justify-content-center">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" onclick="abrirMeuPerfil()" id="navlinkPerfil">Meu Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="indisponivel()">Caixa de Entrada</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="abrirMeusAnuncios()" id="navlinkAnuncios">Meus Anúncios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="abrirAnunciosInteressados()" id="navlinkInteresses">Anúncios que me Interessei</a>
+            </li>
+        </ul>
+        <div class="col-11 d-flex justify-content-center mt-4" id="meuPerfil">
+          <div class="d-flex align-items-center">
+            <div><img src="/imagens/user.png" width="150" height="150" class="img-thumbnail"></div>
+            <div class="ms-3">
+                <p class="fs-4 text-body-emphasis" id="nome">Nome Sobrenome</p>
+                <div class="mt-2">
+                  <p>E-mail: <span id="email">nomesobrenome@gmail.com</span></p>
+                  <p>Telefone: <span id="telefone">(75)9999-9999</span></p>
+                </div>
+                <a href="#" class="text-decoration-none link-primary" onclick="abrirEdicaoPerfil()">Editar Perfil</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center d-none mt-4" id="meusAnuncios">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a class="fs-5 text-decoration-none link-primary me-5" href="/InfoImovel.html">Aluguel de Apartamento</a>
+                <a class="text-decoration-none btn btn-primary py-1 ms-5" href="/editarAnuncio.html">Editar Anúncio</a>
+            </li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-center d-none mt-4" id="anunciosCurtidos">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a class="fs-5 text-decoration-none link-primary me-5" href="/InfoImovel2.html">Venda de Kitnet</a>
+                <a class="text-decoration-none btn btn-danger py-1 ms-5" href="#" onclick="desfazerInteresse()">Desfazer interesse</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <!-- Editar Perfil Modal -->
+    <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="editarModalLabel">Editar Perfil</h1>
+                  <button type="button" class="btn-close" onclick="fecharEdicaoPerfil()" aria-label="Close"></button>
+              </div>
+              <form id="editar">
+                  <div class="modal-body">
+                      Altere as informações desejadas
+                      <div class="col">
+                          <label for="nomePerfil" class="form-label">Nome</label>
+                          <input type="text" class="form-control" id="nomeForm" required>
+                      </div>
+                      <div class="col mt-2">
+                          <label for="emailPerfil" class="form-label">E-mail</label>
+                          <input type="email" class="form-control" id="emailForm" required>
+                      </div>
+                      <div class="col mt-2">
+                          <label for="telPerfil" class="form-label">Telefone</label>
+                          <input type="tel" class="form-control" id="telForm" required>
+                      </div>
+                      <div class="modal-footer mt-4">
+                          <button type="button" class="btn btn-secondary" onclick="fecharEdicaoPerfil()">Cancelar</button>
+                          <button type="button" onclick="salvarEdicaoPerfil()" class="btn btn-primary ms-3">Salvar</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+    <!-- Pedrinho chatbot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/43591813.js"></script>
+    <!-- -->
+</body>
+</html>

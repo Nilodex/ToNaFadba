@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anunciar Imóvel</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/770fa30c75.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+    <!--navbar-->
+  <header class="nav-header">
+    <nav class="navbar navbar-expand-md navbar-light cor-navbar px-2">
+      <a class="navbar-brand col-auto" href="/">
+        <img src="/imagens/logoNEW.png" width="150" alt="">
+      </a>
+      <!--responsividade/navbar sanduiche para telas pequenas-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse col my-md-0 my-2" id="navbarSupportedContent">
+        <div class="col-10 col-md-7 col-xl-5 mx-auto">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Pesquise por imóveis" aria-label="Pesquisar imóveis" aria-describedby="botao-pesquisar">
+            <button class="btn btn-outline-light" type="button" id="botao-pesquisar">Pesquisar</button>
+          </div>
+        </div>
+        <div class="nav-item col-auto my-md-0 my-2">
+          <a href="/criarAnuncio.html" class="nav-link link-light text-end me-4 fs-6 link-opacity-50-hover">Criar Anúncio</a>
+        </div>
+        <div class="nav-item col-auto my-md-0 my-2">
+          <a href="/minhaConta.html" class="nav-link link-light text-end me-3 fs-6 link-opacity-50-hover">Minha Conta</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <main class="container-xl mt-2 d-flex align-items-center justify-content-center">
+        <section class="rounded bg-white border col-lg-6 col-md-7 col-11">
+            <legend class="mt-3 px-4">
+                <h5 class="text-start fs-3">Editar anúncio</h5>
+                <div class="col ms-2 me-5 border-bottom"></div>
+                <p class="text-start text-body-secondary mt-2 ms-2" style="font-size: 13px;">Altere os campos desejados</p>
+            </legend>
+            <div class="mt-4">      
+                <form class="d-flex flex-column justify-content-start mx-4 row-gap-4" action="/infoImovel.html">
+                    <div class="col-7">
+                        <label for="tipoImovel" class="form-label">Tipo de imóvel</label>
+                        <select name="tipoImovel" id="tipoImovel" class="form-select">
+                            <option value="" disabled hidden>Selecionar</option>
+                            <option value="casa">Casa</option>
+                            <option value="apartamento" selected>Apartamento</option>
+                            <option value="kitnet">Kitnet</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-7">
+                        <label for="cidadeImovel">Cidade</label>
+                        <input type="text" class="form-control" name="cidadeImovel" id="cidadeImovel" value="Cachoeira" >
+                    </div>
+                    
+                    <div class="d-flex justify-content-start">
+                        <div class="col-8">
+                            <label for="ruaImovel" class="form-label">Rua</label>
+                            <input type="text" class="form-control" value="Rua do Caquende" name="ruaImovel" id="ruaImovel" >
+                        </div>
+                        <div class="col-2 ms-4">
+                            <label for="numImovel" class="form-label">Nº</label>
+                            <input type="text" class="form-control" value="14" name="numImovel" id="numImovel" >
+                        </div>
+                    </div>
+
+                    <div class="d-flex row row-cols-2 row-gap-3 justify-content-start">
+                        <div class="col-lg-5 col-6">
+                            <label for="areaImovel" class="form-label">Área do imóvel</label>
+                            <input type="number" class="form-control" value="45" name="areaImovel" id="areaImovel" min="0" aria-describedby="areaHelp" >
+                            <div id="areaHelp" class="form-text">
+                                Apenas números em m²
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-6 ms-lg-4">
+                            <label for="quartosImovel" class="form-label">Nº de quartos</label>
+                            <input type="number" class="form-control" value="4" name="quartosImovel" id="quartosImovel" min="0">
+                        </div>
+                        <div class="col-lg-5 col-6">
+                            <label for="banheirosImovel" class="form-label">Nº de banheiros</label>
+                            <input type="number" class="form-control" value="2" name="banheirosImovel" id="banheirosImovel" min="0">
+                        </div>
+                        <div class="col-lg-5 col-6 ms-lg-4">
+                            <label for="vagasImovel" class="form-label text-nowrap">Nº de vagas na garagem</label>
+                            <input type="number" class="form-control" value="2" name="vagasImovel" id="vagasImovel" min="0">
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkPet" name="checkPet" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkPet">O imóvel aceita pets</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkMoveis" name="checkMoveis" class="form-check-input">
+                        <label class="form-check-label" for="checkMoveis">O imóvel vem mobiliado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkRampa" name="checkRampa" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkRampa">Rampa de acesso para cadeirantes</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkElevador" name="checkElevador" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkElevador">Elevador no imóvel (ou dentro do prédio onde está o imóvel)</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkEspaco" name="checkEspaco" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkEspaco">O imóvel é espaçoso para locomoção de cadeirantes</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkApoio" name="checkApoio" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkApoio">Barras de apoio em um ou mais cômodos do imóvel</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkPiso" name="checkPiso" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkPiso">Piso anti-derrapante</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="checkQuina" name="checkQuina" class="form-check-input" checked>
+                        <label class="form-check-label" for="checkQuina">Quinas arredondadas</label>
+                    </div>
+                    <div class="col">
+                        <label for="descricaoImovel" class="mb-2">Descrição</label>
+                        <textarea class="form-control" id="descricaoImovel" rows="4" >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis, leo at aliquam rhoncus, enim lectus pharetra urna, quis aliquet nunc ante commodo nulla. Nam sodales at leo vel aliquam. Quisque quis lacus quis nisl sagittis varius ut et urna. Aliquam at ante sed nulla tincidunt convallis et nec metus. Praesent elementum, tellus vitae pellentesque dapibus, est sapien pharetra nulla, et dictum nulla nisl vel dolor. Aliquam tempor efficitur fermentum. In non ligula non diam finibus sagittis nec nec magna. Curabitur maximus turpis consectetur aliquet tincidunt. Suspendisse non vehicula felis. Curabitur vitae tortor et mi pulvinar vestibulum. Vivamus volutpat vel ipsum quis aliquam. Fusce quis dignissim ligula. Praesent dignissim consectetur arcu imperdiet fermentum. In non tempus orci. Morbi luctus enim et felis tincidunt sodales. Suspendisse id justo eleifend, pretium arcu vitae, dictum nulla. Curabitur mauris velit, sollicitudin quis malesuada eu, fringilla sit amet dui. Aliquam ex ligula, convallis vitae lacus in, aliquam bibendum justo. Quisque gravida elit ac commodo commodo. Vivamus posuere urna nec ante suscipit lobortis.
+                        </textarea>
+                    </div>
+                    <div class="col">
+                        <p class="mb-1">O que deseja fazer com o imóvel?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioTipoAnuncio" id="tipoAnuncioAluguel" checked>
+                            <label class="form-check-label" for="tipoAnuncioAluguel">
+                                Alugar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioTipoAnuncio" id="tipoAnuncioVenda">
+                            <label class="form-check-label" for="tipoAnuncioVenda">
+                                Vender
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="valorImovel" class="form-label">Valor do imóvel</label>
+                        <input type="number" value="1600.00" name="valorImovel" id="valorImovel" class="form-control" aria-describedby="valorHelp" step=".01" min="0" >
+                        <div id="valorHelp" class="form-text">
+                            Valor em reais
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                    <div class="my-4">
+                        <button type="submit" class="btn btn-primary px-4" onclick="salvarAlteracaoAnuncio()">Salvar Alterações</button>
+                        <a href="#" class="btn btn-outline-danger px-4 ms-4" onclick="excluirAnuncio()">Excluir Anúncio</a>
+                        <a href="/minhaConta.html" class="btn border px-4 ms-4">Cancelar</a>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+    <!-- Pedrinho chatbot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/43591813.js"></script>
+    <!-- -->
+
+</body>
+
+</html>
