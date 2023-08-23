@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="estilos.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/770fa30c75.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </head>
 
 <body class="bg-light">
@@ -29,7 +30,7 @@
               </div>
             </div>
             <div class="nav-item col-auto my-md-0 my-2">
-              <a href="#" class="nav-link link-light text-end me-3 fs-5">Criar Anúncio</a>
+              <a href="/minhaConta.html" class="nav-link link-light text-end me-3 fs-6 link-opacity-50-hover">Minha Conta</a>
             </div>
           </div>
         </nav>
@@ -42,7 +43,7 @@
                 <p class="text-start text-body-secondary mt-2 ms-2" style="font-size: 13px;">Preencha o formulário abaixo com os dados do imóvel</p>
             </legend>
             <div class="mt-4">      
-                <form class="d-flex flex-column justify-content-start mx-4 row-gap-4">
+                <form class="d-flex flex-column justify-content-start mx-4 row-gap-4" action="/infoImovel.html">
                     <div class="col-7">
                         <label for="tipoImovel" class="form-label">Tipo de imóvel</label>
                         <select name="tipoImovel" id="tipoImovel" class="form-select">
@@ -55,17 +56,17 @@
     
                     <div class="col-7">
                         <label for="cidadeImovel">Cidade</label>
-                        <input type="text" class="form-control" name="cidadeImovel" id="cidadeImovel" required>
+                        <input type="text" class="form-control" name="cidadeImovel" id="cidadeImovel" >
                     </div>
                     
                     <div class="d-flex justify-content-start">
                         <div class="col-8">
                             <label for="ruaImovel" class="form-label">Rua</label>
-                            <input type="text" class="form-control" name="ruaImovel" id="ruaImovel" required>
+                            <input type="text" class="form-control" name="ruaImovel" id="ruaImovel" >
                         </div>
                         <div class="col-2 ms-4">
                             <label for="numImovel" class="form-label">Nº</label>
-                            <input type="text" class="form-control" name="numImovel" id="numImovel" required>
+                            <input type="text" class="form-control" name="numImovel" id="numImovel" >
                         </div>
                     </div>
 
@@ -87,7 +88,7 @@
                     <div class="d-flex row row-cols-2 row-gap-3 justify-content-start">
                         <div class="col-lg-5 col-6">
                             <label for="areaImovel" class="form-label">Área do imóvel</label>
-                            <input type="number" class="form-control" name="areaImovel" id="areaImovel" min="0" aria-describedby="areaHelp" required>
+                            <input type="number" class="form-control" name="areaImovel" id="areaImovel" min="0" aria-describedby="areaHelp" >
                             <div id="areaHelp" class="form-text">
                                 Apenas números em m²
                             </div>
@@ -139,11 +140,11 @@
                     </div>
                     <div class="col">
                         <label for="descricaoImovel" class="mb-2">Descrição</label>
-                        <textarea class="form-control" placeholder="Insira mais detalhes sobre o imóvel" id="descricaoImovel" rows="4" required></textarea>
+                        <textarea class="form-control" placeholder="Insira mais detalhes sobre o imóvel" id="descricaoImovel" rows="4" ></textarea>
                     </div>
                     <div class="col-6">
                         <label for="telefoneImovel">Telefone para contato</label>
-                        <input class="form-control" id="telefoneImovel" type="tel" name="telefoneImovel" required>
+                        <input class="form-control" id="telefoneImovel" type="tel" name="telefoneImovel" >
                     </div>
                     <div class="col-6">
                         <label for="whatsappImovel">Whatsapp para contato</label>
@@ -151,14 +152,14 @@
                     </div>
                     <div class="col-6">
                         <label for="valorImovel" class="form-label">Valor do imóvel</label>
-                        <input type="number" name="valorImovel" id="valorImovel" class="form-control" aria-describedby="valorHelp" step=".01" min="0" required>
+                        <input type="number" name="valorImovel" id="valorImovel" class="form-control" aria-describedby="valorHelp" step=".01" min="0" >
                         <div id="valorHelp" class="form-text">
                             Valor em reais
                         </div>
                     </div>
                     <div class="d-flex flex-column align-items-center">
                     <div class="my-4">
-                        <button type="submit" class="btn btn-primary px-4">Anunciar</button>
+                        <button type="submit" class="btn btn-primary px-4" onclick="cadastrar()">Anunciar</button>
                         <a href="/" class="btn border ms-4 px-4">Cancelar</a>
                     </div>
                     </div>
@@ -171,6 +172,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+
+    <!-- Pedrinho chatbot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/43591813.js"></script>
+    <!-- -->
 
 </body>
 
